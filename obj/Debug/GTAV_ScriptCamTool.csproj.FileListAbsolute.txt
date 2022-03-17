@@ -1,0 +1,10 @@
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.csproj.CoreCompileInputs.cache
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\bin\Debug\GTAV_ScriptCamTool.dll
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\bin\Debug\GTAV_ScriptCamTool.pdb
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\bin\Debug\NativeUI.dll
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\bin\Debug\ScriptHookVDotNet2.dll
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\bin\Debug\ScriptHookVDotNet.dll
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.csproj.CopyComplete
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.dll
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.pdb
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.csproj.AssemblyReference.cache
