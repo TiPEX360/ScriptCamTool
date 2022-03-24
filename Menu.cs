@@ -7,6 +7,11 @@ using GTA.Math;
 using GTA.Native;
 using NativeUI;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace GTAV_ScriptCamTool
 {
@@ -62,6 +67,13 @@ namespace GTAV_ScriptCamTool
             activePool = new MenuPool();
             activePool.Add(mainMenu);
             activePool.Add(cameraOptionsMenu);
+
+            menuItemA = new UIMenuItem("Save Nodes");
+            menuItemA.Activated += (sender, item) => saveNodes();
+            mainMenu.AddItem(menuItemA);
+            menuItemA = new UIMenuItem("Load Nodes");
+            menuItemA.Activated += (sender, item) => loadNodes();
+            mainMenu.AddItem(menuItemA);
             ResetAllCameras();
         }
 
@@ -182,6 +194,51 @@ namespace GTAV_ScriptCamTool
                 splineCam.UsePlayerView = isChecked;
             else if (selectedItem == sender.MenuItems[3])
                 splineCam.InterpToPlayer = isChecked;
+        }
+
+        private void saveNodes() {
+            List<Tuple<Vector3, Vector3>> nodes = splineCam.Nodes;
+
+            var sb = new StringBuilder();
+            
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.Encoding = Encoding.Default;
+            using (var writer = XmlWriter.Create(sb, settings)) {
+                writer.WriteStartElement("Nodes");
+                foreach (Tuple<Vector3, Vector3> node in nodes) {
+                    writer.WriteStartElement("Node");
+                    writer.WriteAttributeString("locX", node.Item1[0].ToString());
+                    writer.WriteAttributeString("locY", node.Item1[1].ToString());
+                    writer.WriteAttributeString("locZ", node.Item1[2].ToString());
+                    writer.WriteAttributeString("rotX", node.Item2[0].ToString());
+                    writer.WriteAttributeString("rotY", node.Item2[1].ToString());
+                    writer.WriteAttributeString("rotZ", node.Item2[2].ToString());
+                    writer.WriteEndElement();
+                }
+                writer.WriteEndElement();
+            }
+
+         
+            File.WriteAllText("nodes.xml", sb.ToString());
+
+        }
+
+        private void loadNodes() {
+            
+            List<Tuple<Vector3, Vector3>> nodes = new List<Tuple<Vector3, Vector3>>();
+      
+            XmlDocument doc = new XmlDocument();
+            doc.Load("nodes.xml");
+            XmlNodeList xmlNodes = doc.DocumentElement.SelectNodes("/Nodes/Node");
+            foreach(XmlNode xmlNode in xmlNodes) {
+                // var attr = xmlNode.Attributes[0].Value;
+                Vector3 position = new Vector3(float.Parse(xmlNode.Attributes[0].Value, System.Globalization.CultureInfo.InvariantCulture), float.Parse(xmlNode.Attributes[1].Value, System.Globalization.CultureInfo.InvariantCulture),float.Parse(xmlNode.Attributes[2].Value, System.Globalization.CultureInfo.InvariantCulture));
+                Vector3 rotation = new Vector3(float.Parse(xmlNode.Attributes[3].Value, System.Globalization.CultureInfo.InvariantCulture), float.Parse(xmlNode.Attributes[4].Value, System.Globalization.CultureInfo.InvariantCulture),float.Parse(xmlNode.Attributes[5].Value, System.Globalization.CultureInfo.InvariantCulture));
+                nodes.Add(new Tuple<Vector3, Vector3>(position, rotation));
+            }
+
+            splineCam.Nodes = nodes;
         }
 
         private void EnterPointSelector()

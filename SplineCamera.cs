@@ -57,7 +57,7 @@ namespace GTAV_ScriptCamTool
             Function.Call(Hash.SET_CAM_SPLINE_DURATION, _mainCamera.Handle,  100 / value * 1000 ); 
             } }
 
-        public List<Tuple<Vector3, Vector3>> Nodes {  get { return _nodes; } }
+        public List<Tuple<Vector3, Vector3>> Nodes {  get { return _nodes; } set { _nodes = value; } }
 
         public SplineCamera()
         {
@@ -136,7 +136,7 @@ namespace GTAV_ScriptCamTool
                     msgBox.Items[0].Draw();
                 }
                 else {
-                    msgText = string.Format("~e~Node Max Index: {0}, Current node index: {1}", _nodes.Count - 1, Function.Call<int>(Hash.GET_CAM_SPLINE_NODE_INDEX, _mainCamera.Handle).ToString());
+                    msgText = string.Format("~e~Node Max Index: {0}, Current node index: {1}, Current segment: {2}", _nodes.Count - 1, Function.Call<int>(Hash.GET_CAM_SPLINE_NODE_INDEX, _mainCamera.Handle).ToString(), this.currentSegment);
                     msgScale = 0.3f;
                     msgBox.Items.Clear();
                     msgBox.Items.Add(new UIText(msgText, new Point(1121, 2), msgScale, Color.White));

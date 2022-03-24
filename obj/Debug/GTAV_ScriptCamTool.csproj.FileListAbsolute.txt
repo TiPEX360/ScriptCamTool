@@ -7,4 +7,4 @@ C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\bin\Debu
 C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.csproj.CopyComplete
 C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.dll
 C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.pdb
-C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.csproj.AssemblyReference.cache
+C:\Users\Dziurawy-Beret\Desktop\ScriptCamTool-master\GTAV_ScriptCamTool\obj\Debug\GTAV_ScriptCamTool.csprojAssemblyReference.cache
