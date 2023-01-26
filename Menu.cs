@@ -203,7 +203,7 @@ namespace GTAV_ScriptCamTool
             
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
-            settings.Encoding = Encoding.Default;
+            settings.Encoding = Encoding.UTF8;
             using (var writer = XmlWriter.Create(sb, settings)) {
                 writer.WriteStartElement("Nodes");
                 foreach (Tuple<Vector3, Vector3> node in nodes) {
